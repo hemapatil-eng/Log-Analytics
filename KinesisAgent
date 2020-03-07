@@ -1,0 +1,18 @@
+{
+"cloudwatch.endpoint": "monitoring.us-east-1.amazonaws.com",
+ "cloudwatch.emitMetrics": true,
+ "firehose.endpoint": "firehose.us-east-1.amazonaws.com",
+ "flows": [
+ {
+ "filePattern": "/home/ec2-user/access_log.log",
+ "deliveryStream": "web-log-ingestion-stream",
+ "dataProcessingOptions": [
+ {
+ "initialPostion": "START_OF_FILE",
+ "maxBufferAgeMillis":"2000",
+ "optionName": "LOGTOJSON",
+ "logFormat": "COMBINEDAPACHELOG"
+ }]
+ }
+ ]
+}
